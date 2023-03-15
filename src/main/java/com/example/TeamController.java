@@ -2,10 +2,11 @@ package com.example;
 
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Controller;
-import io.micronaut.http.annotation.Get;
 
-@Controller("/teams")
-public class TeamController {
+import static com.example.TeamApi.PATH;
+
+@Controller(PATH)
+public class TeamController implements TeamApi {
 
     private final TeamRepository repository;
 
@@ -13,13 +14,13 @@ public class TeamController {
         this.repository = repository;
     }
 
-    @Get
-    public Iterable<Team> findAll() {
+    @Override
+    public Iterable<Team> list() {
         return repository.findAll();
     }
 
-    @Get("/{id}")
-    public HttpResponse<Team> findOne(Long id) {
+    @Override
+    public HttpResponse<Team> get(Long id) {
         return repository
                 .findById(id)
                 .map(HttpResponse::ok)
