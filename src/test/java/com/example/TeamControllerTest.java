@@ -32,7 +32,7 @@ public class TeamControllerTest {
         assertEquals(200, response.code());
 
         Team team = response.body();
-
+        assertNotNull(team);
         assertEquals("Real Madrid CF", team.name());
     }
 
