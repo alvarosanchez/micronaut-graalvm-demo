@@ -13,7 +13,7 @@ import static com.example.TeamApi.PATH;
 import static org.junit.jupiter.api.Assertions.*;
 
 @MicronautTest
-public class TeamControllerTest {
+class TeamControllerTest {
 
     @Inject
     TeamClient client;
