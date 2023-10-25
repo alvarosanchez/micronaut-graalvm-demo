@@ -3,13 +3,15 @@ package com.example;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Get;
 
+import java.util.List;
+
 public interface TeamApi {
 
     String PATH = "/teams";
 
     @Get
-    Iterable<Team> list();
+    List<TeamDto> list();
 
     @Get("/{id}")
-    HttpResponse<Team> get(Long id);
+    HttpResponse<TeamDto> get(Long id);
 }

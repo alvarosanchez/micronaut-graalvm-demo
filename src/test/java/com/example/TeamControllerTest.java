@@ -3,16 +3,18 @@ package com.example;
 
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.client.annotation.Client;
+import io.micronaut.test.annotation.Sql;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import jakarta.inject.Inject;
 import org.junit.jupiter.api.Test;
 
-import java.util.Collection;
+import java.util.List;
 
 import static com.example.TeamApi.PATH;
 import static org.junit.jupiter.api.Assertions.*;
 
 @MicronautTest
+@Sql({"classpath:create.sql", "classpath:data.sql"})
 class TeamControllerTest {
 
     @Inject
@@ -20,20 +22,20 @@ class TeamControllerTest {
 
     @Test
     void testList() {
-        Iterable<Team> teams = client.list();
+        List<TeamDto> teams = client.list();
 
-        assertEquals(2, ((Collection<Team>)teams).size());
+        assertEquals(10, teams.size());
     }
 
     @Test
     void testGet() {
-        HttpResponse<Team> response = client.get(1L);
+        HttpResponse<TeamDto> response = client.get(1L);
 
         assertEquals(200, response.code());
 
-        Team team = response.body();
+        TeamDto team = response.body();
         assertNotNull(team);
-        assertEquals("Real Madrid CF", team.name());
+        assertEquals("Real Madrid (Santiago Bernabéu)", team.description());
     }
 
     @Client(PATH)
