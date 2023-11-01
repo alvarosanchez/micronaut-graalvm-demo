@@ -1,6 +1,5 @@
 package com.example;
 
-
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.client.annotation.Client;
 import io.micronaut.test.annotation.Sql;
@@ -15,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @MicronautTest
 @Sql({"classpath:create.sql", "classpath:data.sql"})
+@Sql(value = "classpath:clean.sql", phase = Sql.Phase.AFTER_ALL)
 class TeamControllerTest {
 
     @Inject
