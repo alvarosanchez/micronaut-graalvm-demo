@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @MicronautTest
 @Sql({"classpath:create.sql", "classpath:data.sql"})
-@Sql(value = "classpath:clean.sql", phase = Sql.Phase.AFTER_ALL)
+@Sql(scripts = "classpath:clean.sql", phase = Sql.Phase.AFTER_ALL)
 class TeamControllerTest {
 
     @Inject
