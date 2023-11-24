@@ -36,19 +36,19 @@ public class DevelopmentDataLoader {
     }
 
     @EventListener
-    @Async(TaskExecutors.IO)
+    @Async(TaskExecutors.BLOCKING)
     @Connectable
     public void loadData(StartupEvent event) {
         try (var statement = connection.createStatement()) {
-            LOG.info("Creating database schema");
             var createSql = loadSql("create.sql");
             statement.execute(createSql);
+            LOG.info("Created database schema");
 
-            LOG.info("Loading sample data");
             var dataSql = loadSql("data.sql");
             statement.execute(dataSql);
+            LOG.info("Loaded sample data");
         } catch (SQLException | IOException e) {
-            LOG.error("Failed to load data", e);
+            //yummy yummy
         }
     }
 
