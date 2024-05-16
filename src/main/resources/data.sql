@@ -1,5 +1,3 @@
-insert into team(name, stadium) values ('Aris Thessaloniki', 'Kleanthis Vikelidis Stadium');
-insert into team(name, stadium) values ('PAOK', 'Toumba Stadium');
 insert into team(name, stadium) values ('Real Madrid', 'Santiago Bernabéu');
 insert into team(name, stadium) values ('FC Barcelona', 'Camp Nou');
 insert into team(name, stadium) values ('Manchester United', 'Old Trafford');

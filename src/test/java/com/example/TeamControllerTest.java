@@ -24,12 +24,12 @@ class TeamControllerTest {
     void testList() {
         List<TeamDto> teams = client.list();
 
-        assertEquals(12, teams.size());
+        assertEquals(10, teams.size());
     }
 
     @Test
     void testGet() {
-        HttpResponse<TeamDto> response = client.get(3L);
+        HttpResponse<TeamDto> response = client.get(1L);
 
         assertEquals(200, response.code());
 

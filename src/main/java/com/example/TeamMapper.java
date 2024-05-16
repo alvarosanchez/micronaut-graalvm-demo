@@ -10,6 +10,6 @@ public interface TeamMapper {
     TeamDto toDto(Team team);
 
     default String getDescription(Team team) {
-        return String.format("%s (%s)", team.name(), team.stadium());
+        return "%s (%s)".formatted(team.name(), team.stadium());
     }
 }
