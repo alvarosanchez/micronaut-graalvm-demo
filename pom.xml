@@ -65,11 +65,6 @@
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bctls-lts8on</artifactId>
-            <version>2.73.6</version>
-        </dependency>
 
         <dependency>
             <groupId>io.micronaut</groupId>
