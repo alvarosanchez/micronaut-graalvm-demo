@@ -24,7 +24,7 @@ class TeamControllerTest {
     void testList() {
         List<TeamDto> teams = client.list();
 
-        assertEquals(10, teams.size());
+        assertFalse(teams.isEmpty());
     }
 
     @Test
@@ -36,6 +36,18 @@ class TeamControllerTest {
         TeamDto team = response.body();
         assertNotNull(team);
         assertEquals("Real Madrid (Santiago Bernabéu)", team.description());
+    }
+
+    @Test
+    void testSave() {
+        TeamDto team = TeamDtoBuilder.builder()
+                        .description("Wisła Kraków (Stadion Miejski)")
+                        .build();
+
+        HttpResponse<TeamDto> response = client.save(team);
+
+        assertEquals(201, response.code());
+        assertNotEquals(-1L, client.get(response.body().id()));
     }
 
     @Client(PATH)

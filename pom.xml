@@ -23,6 +23,7 @@
         <micronaut.aot.packageName>com.example.aot.generated</micronaut.aot.packageName>
         <micronaut.runtime>netty</micronaut.runtime>
         <exec.mainClass>com.example.Application</exec.mainClass>
+        <micronaut.sourcegen.version>1.0.0-M15</micronaut.sourcegen.version>
     </properties>
 
     <dependencies>
@@ -45,6 +46,11 @@
             <groupId>io.micronaut.sql</groupId>
             <artifactId>micronaut-jdbc-hikari</artifactId>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.micronaut.sourcegen</groupId>
+            <artifactId>micronaut-sourcegen-annotations</artifactId>
+            <version>${micronaut.sourcegen.version}</version>
         </dependency>
         <dependency>
             <groupId>jakarta.persistence</groupId>
@@ -152,6 +158,11 @@
                                     <artifactId>micronaut-inject</artifactId>
                                 </exclusion>
                             </exclusions>
+                        </path>
+                        <path>
+                            <groupId>io.micronaut.sourcegen</groupId>
+                            <artifactId>micronaut-sourcegen-generator-java</artifactId>
+                            <version>${micronaut.sourcegen.version}</version>
                         </path>
                     </annotationProcessorPaths>
                     <compilerArgs>

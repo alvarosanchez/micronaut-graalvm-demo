@@ -3,6 +3,7 @@ package com.example;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Controller;
 
+import java.net.URI;
 import java.util.List;
 
 import static com.example.TeamApi.PATH;
@@ -32,5 +33,12 @@ public class TeamController implements TeamApi {
                 .map(mapper::toDto)
                 .map(HttpResponse::ok)
                 .orElse(HttpResponse.notFound());
+    }
+
+    @Override
+    public HttpResponse<TeamDto> save(TeamDto teamDto) {
+        Team saved = repository.save(mapper.toEntity(teamDto));
+        return HttpResponse.created(URI.create(PATH + "/" + saved.id()))
+                .body(mapper.toDto(saved));
     }
 }
