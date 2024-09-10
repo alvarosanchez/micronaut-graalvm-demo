@@ -100,12 +100,12 @@
                 <artifactId>micronaut-maven-plugin</artifactId>
                 <configuration>
                     <configFile>aot-${packaging}.properties</configFile>
-                    <testResourcesDependencies>
-                        <dependency>
-                            <groupId>io.micronaut.testresources</groupId>
-                            <artifactId>micronaut-test-resources-control-panel</artifactId>
-                        </dependency>
-                    </testResourcesDependencies>
+<!--                    <testResourcesDependencies>-->
+<!--                        <dependency>-->
+<!--                            <groupId>io.micronaut.testresources</groupId>-->
+<!--                            <artifactId>micronaut-test-resources-control-panel</artifactId>-->
+<!--                        </dependency>-->
+<!--                    </testResourcesDependencies>-->
                 </configuration>
             </plugin>
             <plugin>
