@@ -1,4 +1,4 @@
-package com.example;
+package com.example.dev;
 
 
 import io.micronaut.context.annotation.Requires;
@@ -23,14 +23,14 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 @Singleton
-@Requires(env = Environment.DEVELOPMENT)
-public class DevelopmentDataLoader {
+@Requires(notEnv = Environment.TEST)
+public class SampleDataLoader {
 
-    private static final Logger LOG = LoggerFactory.getLogger(DevelopmentDataLoader.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SampleDataLoader.class);
     private final Connection connection;
     private final ResourceResolver resourceResolver;
 
-    public DevelopmentDataLoader(Connection connection, ResourceResolver resourceResolver) throws IOException {
+    public SampleDataLoader(Connection connection, ResourceResolver resourceResolver) throws IOException {
         this.connection = connection;
         this.resourceResolver = resourceResolver;
     }

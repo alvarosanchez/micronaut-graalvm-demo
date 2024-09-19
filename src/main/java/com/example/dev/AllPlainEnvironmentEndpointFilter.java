@@ -1,4 +1,4 @@
-package com.example.panel;
+package com.example.dev;
 
 import io.micronaut.context.annotation.Requires;
 import io.micronaut.context.env.Environment;
