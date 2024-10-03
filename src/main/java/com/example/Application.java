@@ -5,7 +5,15 @@ import io.micronaut.context.ApplicationContextConfigurer;
 import io.micronaut.context.annotation.ContextConfigurer;
 import io.micronaut.core.annotation.NonNull;
 import io.micronaut.runtime.Micronaut;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 
+@OpenAPIDefinition(
+        info = @Info(
+                title = "teams",
+                version = "1.0"
+        )
+)
 public class Application {
 
     @ContextConfigurer
