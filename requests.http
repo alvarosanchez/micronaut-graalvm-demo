@@ -5,4 +5,4 @@ GET http://localhost:8080/teams
 GET http://localhost:8080/teams/1
 
 ### Get non-existent team
-GET http://localhost:8080/teams/3
+GET http://localhost:8080/teams/99

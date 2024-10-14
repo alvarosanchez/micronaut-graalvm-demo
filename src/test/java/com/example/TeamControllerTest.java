@@ -41,13 +41,13 @@ class TeamControllerTest {
     @Test
     void testSave() {
         TeamDto team = TeamDtoBuilder.builder()
-                        .description("Wisła Kraków (Stadion Miejski)")
+                        .description("Club Deportivo Leganés (Estadio Municipal de Butarque)")
                         .build();
 
         HttpResponse<TeamDto> response = client.save(team);
 
         assertEquals(201, response.code());
-        assertNotEquals(-1L, client.get(response.body().id()));
+        assertNotEquals(-1L, response.body().id());
     }
 
     @Client(PATH)
